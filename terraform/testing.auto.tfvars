@@ -6,7 +6,6 @@ prefix                = "my3scale"
 region                = "eu-de" # eu-de for Frankfurt MZR
 resource_group_name   = ""
 tags                  = ["terraform", "3scale"]
-activity_tracker_name = "platform-activities"
 
 
 ##############################################################################
