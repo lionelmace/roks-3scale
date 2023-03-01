@@ -104,63 +104,8 @@ module "vpc_openshift_cluster" {
   disable_public_service_endpoint = var.disable_public_service_endpoint
   cos_instance_crn                = ibm_resource_instance.cos.id
   force_delete_storage            = var.openshift_force_delete_storage
-  kms_config = [
-    {
-      instance_id      = ibm_resource_instance.key-protect.guid, # GUID of Key Protect instance
-      crk_id           = ibm_kms_key.key.key_id,                 # ID of customer root key
-      private_endpoint = true
-    }
-  ]
   entitlement        = var.entitlement
   tags               = var.tags
   update_all_workers = var.openshift_update_all_workers
 }
 
-##############################################################################
-# Log and Monitoring can only be attached once cluster is fully ready
-# resource "time_sleep" "wait_for_openshift_initialization" {
-
-#   depends_on = [
-#     module.vpc_openshift_cluster
-#   ]
-
-#   create_duration = "15m"
-# }
-
-##############################################################################
-# Attach Log Analysis Service to cluster
-# 
-# Integrating Logging requires the master node to be 'Ready'
-# If not, you will face a timeout error after 45mins
-##############################################################################
-module "openshift_logdna_attach" {
-
-  source = "terraform-ibm-modules/cluster/ibm//modules/configure-logdna"
-
-  cluster            = module.vpc_openshift_cluster.vpc_openshift_cluster_id
-  logdna_instance_id = module.logging_instance.guid
-  private_endpoint   = var.logdna_private_endpoint
-
-  # depends_on = [
-  #   time_sleep.wait_for_openshift_initialization
-  # ]
-}
-
-##############################################################################
-# Attach Monitoring Service to cluster
-# 
-# Integrating Monitoring requires the master node to be 'Ready'
-# If not, you will face a timeout error after 45mins
-##############################################################################
-module "openshift_sysdig_attach" {
-
-  source = "terraform-ibm-modules/cluster/ibm//modules/configure-sysdig-monitor"
-
-  cluster            = module.vpc_openshift_cluster.vpc_openshift_cluster_id
-  sysdig_instance_id = module.monitoring_instance.guid
-  private_endpoint   = var.sysdig_private_endpoint
-
-  # depends_on = [
-  #   time_sleep.wait_for_openshift_initialization
-  # ]
-}

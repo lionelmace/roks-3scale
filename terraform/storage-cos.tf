@@ -42,16 +42,6 @@ resource "ibm_cos_bucket" "cos-bucket" {
   storage_class         = "smart"
   cross_region_location = "eu"
   # region_location      = "eu-de"
-  activity_tracking {
-    read_data_events     = true
-    write_data_events    = true
-    activity_tracker_crn = local.activity_tracker_id
-  }
-  metrics_monitoring {
-    usage_metrics_enabled   = true
-    request_metrics_enabled = true
-    metrics_monitoring_crn  = module.monitoring_instance.id
-  }
   endpoint_type = "public"
   # allowed_ip = ["223.196.168.27", "223.196.161.38", "192.168.0.1"]
 }

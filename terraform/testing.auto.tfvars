@@ -2,7 +2,7 @@
 ## Global Variables
 ##############################################################################
 #ibmcloud_api_key = ""      # Set the variable export TF_VAR_ibmcloud_api_key=
-prefix                = "3scale"
+prefix                = "my3scale"
 region                = "eu-de" # eu-de for Frankfurt MZR
 resource_group_name   = ""
 tags                  = ["terraform", "3scale"]
