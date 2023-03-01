@@ -1,0 +1,11 @@
+apiVersion: apps.3scale.net/v1alpha1
+kind: APIManager
+metadata:
+  name: example-apimanager
+spec:
+  wildcardDomain: mytodo-roks-483cccd2f0d38128dd40d2b711142ba9-0000.eu-de.containers.appdomain.cloud
+  system:
+    fileStorage:
+      simpleStorageService:
+        configurationSecretRef:
+          name: ibmcloud-cos-credentials
