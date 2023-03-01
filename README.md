@@ -11,38 +11,47 @@
 
 1. Launch OpenShift Portal
 
+1. Set the value of the project name.
+
+    ```sh
+    export OPENSHIFT_PROJECT=
+    ```
+
 1. Create a new Project such as `apim`
 
     ```sh
     oc new-project apim
     ```
 
-### Registry Service Account
+## Registry Service Account
 
-1. Create a Registry Service Account https://access.redhat.com/terms-based-registry/#/token/mace/openshift-secret
+1. Create a Registry Service Account https://access.redhat.com/terms-based-registry/#/accounts
 
-1. Download the secret you created
+1. Set the value of the token.
+
+    ```sh
+    export TOKEN_USERNAME=<your-token-username>
+    export TOKEN_PASSWORD=<your-token-password>
+    ```
 
 1. Submit the secret to the cluster using this command:
 
     ```sh
-    oc create -f threescale-registry-auth-secret.yml --namespace=my3scale
-    oc secrets link default threescale-registry-auth --for=pull
-    oc secrets link builder threescale-registry-auth
-    ```
+    oc create secret docker-registry threescale-registry-auth \
+    --docker-server=registry.redhat.io \
+    --docker-username=$TOKEN_USERNAME \
+    --docker-password=$TOKEN_PASSWORD
+    
+    > --docker-email="lionel.mace@fr.ibm.com"
 
 1. Connect to the cluster
-
-### Create APIM
-
-
 
 ## Create APIManager
 
 1. Replace the cluster-name (including <>) with the the cluster name.
 
     ```sh
-    export CLUSTER_NAME=<cluster-name>
+    export CLUSTER_NAME=<your-cluster-name>
     ```
 
 1. Retrieve and set the value of the cluster ingress subdomain.
