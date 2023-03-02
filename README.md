@@ -34,6 +34,10 @@ Terraform is used to provision a complete environment with the cluster, the COS 
 
 1. Connect to the OpenShift cluster via the CLI
 
+    ```sh
+    ibmcloud ks cluster config --cluster my3scale-roks --admin
+    ```
+
 1. Set the project name.
 
     ```sh
