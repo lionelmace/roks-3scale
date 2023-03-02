@@ -113,6 +113,12 @@ APIManager requires a wildcard DNS domain. We will use the ingress domain automa
     export CLUSTER_NAME=<your-cluster-name>
     ```
 
+    Example: Terraform will create a cluster named `my3scale-roks` by default.
+
+    ```sh
+    export CLUSTER_NAME=my3scale-roks
+    ```
+
 1. Retrieve and set the value of the cluster ingress subdomain.
 
     ```sh
