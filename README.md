@@ -34,6 +34,18 @@ Terraform can be used to provision the Cloud Services: the OpenShift cluster, th
 
 ## Connect to the OpenShift Cluster
 
+1. Target the correct Resource Group
+
+    ```sh
+    ibmcloud target -g <your-resource-group-name>
+    ```
+
+    > If you have used Terraform, the default Resource Group is `my3scale-group`.
+
+    ```sh
+    ibmcloud target -g my3scale-group
+    ```
+
 1. Set the cluster name variable by replacing the cluster-name (including <>).
 
     ```sh
