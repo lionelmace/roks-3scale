@@ -139,10 +139,10 @@ APIManager requires a wildcard DNS domain. We will use the ingress domain automa
     apiVersion: apps.3scale.net/v1alpha1
     kind: APIManager
     metadata:
-    name: example-apimanager
+      name: example-apimanager
     spec:
-    wildcardDomain: $INGRESS_DOMAIN
-    system:
+      wildcardDomain: $INGRESS_DOMAIN
+      system:
         fileStorage:
         simpleStorageService:
             configurationSecretRef:
