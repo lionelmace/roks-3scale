@@ -32,10 +32,22 @@ Terraform is used to provision a complete environment with the cluster, the COS 
 
 ## Connect to the OpenShift Cluster
 
+1. Set the cluster name variable by replacing the cluster-name (including <>).
+
+    ```sh
+    export CLUSTER_NAME=<your-cluster-name>
+    ```
+
+    > If you have used Terraform, the default cluster name is `my3scale-roks`.
+
+    ```sh
+    export CLUSTER_NAME=my3scale-roks
+    ```
+
 1. Connect to the OpenShift cluster via the CLI
 
     ```sh
-    ibmcloud ks cluster config --cluster my3scale-roks --admin
+    ibmcloud ks cluster config --cluster $CLUSTER_NAME --admin
     ```
 
 1. Set the project name.
@@ -110,18 +122,6 @@ Terraform is used to provision a complete environment with the cluster, the COS 
 ## Create the 3scale APIManager
 
 APIManager requires a wildcard DNS domain. We will use the ingress domain automatically created at the cluster provisioning time.
-
-1. Replace the cluster-name (including <>) with the the cluster name.
-
-    ```sh
-    export CLUSTER_NAME=<your-cluster-name>
-    ```
-
-    Example: Terraform will create a cluster named `my3scale-roks` by default.
-
-    ```sh
-    export CLUSTER_NAME=my3scale-roks
-    ```
 
 1. Retrieve and set the value of the cluster ingress subdomain.
 
