@@ -53,8 +53,8 @@ Terraform is used to provision a complete environment with the cluster, the COS 
 1. Set the value of the token.
 
     ```sh
-    export TOKEN_USERNAME=<your-token-username>
-    export TOKEN_PASSWORD=<your-token-password>
+    export TOKEN_USERNAME="<your-token-username>"
+    export TOKEN_PASSWORD="<your-token-password>""
     ```
 
 1. Submit the secret to the cluster using this command:
