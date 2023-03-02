@@ -93,6 +93,10 @@ Terraform can be used to provision the Cloud Services: the OpenShift cluster, th
 
 ## Configure access to IBM Cloud COS
 
+1. Select the storage instance from the [COS list](https://cloud.ibm.com/objectstorage)
+
+    > The instance created by terraform is named `my3scale-cos`.
+
 1. Create a file cos-credentials.env from a template
 
     ```sh
