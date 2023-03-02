@@ -1,11 +1,11 @@
-# Install 3scale on ROKS
+# Install 3scale operator on OpenShift on IBM Cloud
 
-![](images/operator-selection.png)
+![operator](images/operator-selection.png)
 
 ## Prerequisites
 
 * An IBM Cloud Account with Admin access rights
-* A cluster ROKS
+* An OpenShift cluster on IBM Cloud, a.k.a ROKS
 * A COS bucket
 
 ## Create the environment
@@ -144,7 +144,7 @@ APIManager requires a wildcard DNS domain. We will use the ingress domain automa
     It should look like this:
 
     ```sh
-    echo $INGRESS_DOMAIN
+    my3scale-roks-483cccd2f0d38128dd40d2b711142ba9-0000.eu-de.containers.appdomain.cloud
     ```
 
 1. Create the APIManager
