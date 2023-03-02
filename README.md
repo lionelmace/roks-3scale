@@ -168,6 +168,7 @@ APIManager requires a wildcard DNS domain. We will use the ingress domain automa
     kind: APIManager
     metadata:
       name: example-apimanager
+      namespace: $THREESCALE_PROJECT
     spec:
       wildcardDomain: $INGRESS_DOMAIN
       system:
