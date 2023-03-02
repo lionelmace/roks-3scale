@@ -2,28 +2,51 @@
 
 ## Prerequisites
 
+* An IBM Cloud Account with Admin acces rights
 * A cluster ROKS
 * A COS bucket
 
-## Installation
+## Create the environment
 
-1. Install ROKS
+Terraform is used to provision a complete environment with the cluster, the COS bucket.
 
-1. Launch OpenShift Portal
-
-1. Set the value of the project name.
+1. Initialize the terraform
 
     ```sh
-    export OPENSHIFT_PROJECT=
+    terraform init
     ```
 
-1. Create a new Project such as `apim`
+1. Generate a plan
 
     ```sh
-    oc new-project apim
+    terraform plan -var-file="testing.auto.tfvars"
     ```
 
-## Registry Service Account
+1. Apply the Terraform plan
+
+    ```sh
+    terraform apply -var-file="testing.auto.tfvars"
+    ```
+
+> You can also provision this environement using IBM Cloud Schematics.
+
+## Connect to the OpenShift Cluster
+
+1. Connect to the OpenShift cluster via the CLI
+
+1. Set the project name.
+
+    ```sh
+    export THREESCALE_PROJECT=my3scale
+    ```
+
+1. Create a new Project
+
+    ```sh
+    oc new-project $THREESCALE_PROJECT
+    ```
+
+## Configure the RH Registry Service Account
 
 1. Create a Registry Service Account https://access.redhat.com/terms-based-registry/#/accounts
 
@@ -41,12 +64,41 @@
     --docker-server=registry.redhat.io \
     --docker-username=$TOKEN_USERNAME \
     --docker-password=$TOKEN_PASSWORD
-    
+    ```
+
     > --docker-email="lionel.mace@fr.ibm.com"
 
-1. Connect to the cluster
+## Configure access to IBM Cloud COS
 
-## Create APIManager
+1. Create a file cos-credentials.env from a template
+
+    ```sh
+    cp cos-credentials.env.template cos-credentials.env
+    ```
+
+1. Edit the credentials with your COS HMAC key, bucket and endpoint information
+
+    ```txt
+    AWS_ACCESS_KEY_ID=<replace_with_cos_hmac_keys_access_key_id>
+    AWS_SECRET_ACCESS_KEY=<replace_with_cos_hmac_keys_secret_access_key>
+    AWS_BUCKET=cos-bucket-for-3scale
+    AWS_HOSTNAME=s3.eu-de.cloud-object-storage.appdomain.cloud
+    AWS_REGION=eu-de
+    ```
+
+1. Create the secret in the project
+
+    ```sh
+    oc create secret generic ibmcloud-cos-credentials --namespace=$THREESCALE_PROJECT --from-env-file=cos-credentials.env
+    ```
+
+## Install the 3scale operator
+
+1. xx
+
+## Create the 3scale APIManager
+
+APIManager requires a wildcard DNS domain. We will use the ingress domain automatically created at the cluster provisioning time.
 
 1. Replace the cluster-name (including <>) with the the cluster name.
 
