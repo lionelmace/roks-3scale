@@ -2,13 +2,13 @@
 
 ## Prerequisites
 
-* An IBM Cloud Account with Admin acces rights
+* An IBM Cloud Account with Admin access rights
 * A cluster ROKS
 * A COS bucket
 
 ## Create the environment
 
-Terraform is used to provision a complete environment with the cluster, the COS bucket.
+Terraform can be used to provision the Cloud Services: the OpenShift cluster, the COS bucket.
 
 1. Initialize the terraform
 
@@ -28,7 +28,7 @@ Terraform is used to provision a complete environment with the cluster, the COS 
     terraform apply -var-file="testing.auto.tfvars"
     ```
 
-> You can also provision this environement using IBM Cloud Schematics.
+> You can also provision the Cloud Services via IBM Cloud Schematics.
 
 ## Connect to the OpenShift Cluster
 

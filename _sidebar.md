@@ -1,3 +1,3 @@
 <!-- _sidebar.md -->
 
-- [3scale](README.md)
+[3scale](README.md)
