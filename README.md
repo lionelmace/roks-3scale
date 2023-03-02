@@ -66,6 +66,13 @@ Terraform is used to provision a complete environment with the cluster, the COS 
     --docker-password=$TOKEN_PASSWORD
     ```
 
+1. Link the secret to your project
+
+    ```sh
+    oc secrets link default threescale-registry-auth --for=pull
+    oc secrets link builder threescale-registry-auth
+    ```
+
     > --docker-email="lionel.mace@fr.ibm.com"
 
 ## Configure access to IBM Cloud COS
