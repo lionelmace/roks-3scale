@@ -173,9 +173,9 @@ APIManager requires a wildcard DNS domain. We will use the ingress domain automa
       wildcardDomain: $INGRESS_DOMAIN
       system:
         fileStorage:
-        simpleStorageService:
+          simpleStorageService:
             configurationSecretRef:
-            name: ibmcloud-cos-credentials
+              name: ibmcloud-cos-credentials
     EOF
     ```
 
