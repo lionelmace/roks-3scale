@@ -1,5 +1,7 @@
 # Install 3scale on ROKS
 
+![](images/operator-selection.png)
+
 ## Prerequisites
 
 * An IBM Cloud Account with Admin access rights
@@ -127,13 +129,19 @@ Terraform can be used to provision the Cloud Services: the OpenShift cluster, th
 
 APIManager requires a wildcard DNS domain. We will use the ingress domain automatically created at the cluster provisioning time.
 
-1. Retrieve and set the value of the cluster ingress subdomain.
+1. Retrieve and store the value of the cluster ingress domain.
 
     ```sh
     export INGRESS_DOMAIN=$(ibmcloud ks cluster get -c $CLUSTER_NAME | grep "Ingress Subdomain" | awk '{print tolower($3)}')
     ```
 
-1. Verify the value you set
+1. Verify the value of the ingress domain.
+
+    ```sh
+    echo $INGRESS_DOMAIN
+    ```
+
+    It should look like this:
 
     ```sh
     echo $INGRESS_DOMAIN
