@@ -227,7 +227,13 @@ Once the installation is complete, you will be able to access the 3scale console
 
     ![launcher](images/operator-project.png)
 
-1. xx
+1. Retrieve the MASTER_USER and MASTER_PASSWORD from the Secret `system-seed`.
+
+    ![launcher](images/operator-password.png)
+
+1. Login to 3scale
+
+    ![launcher](images/operator-3scale-master.png)
 
 ## Resources
 
