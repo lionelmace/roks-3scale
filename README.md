@@ -1,7 +1,5 @@
 # Install 3scale operator on OpenShift on IBM Cloud
 
-![operator](images/operator-selection.png)
-
 ## Prerequisites
 
 * An IBM Cloud Account with Admin access rights
@@ -135,6 +133,10 @@ Terraform can be used to provision the Cloud Services: the OpenShift cluster, th
 
 ## Install the 3scale operator
 
+We will install this operator using the command line
+
+![operator](images/operator-selection.png)
+
 1. Find the 3scale operator you want to install from OperatorHub
 
     ```sh
@@ -214,6 +216,18 @@ APIManager requires a wildcard DNS domain. We will use the ingress domain automa
               name: ibmcloud-cos-credentials
     EOF
     ```
+
+> It takes about 5 minutes for the all the pods of the APIManaged to install.
+
+## Launch the 3scale Master Admin Console
+
+Once the installation is complete, you will be able to access the 3scale console.
+
+1. Go to your `my3scale` project, you should see a 3scale Launcher hyperlink
+
+    ![launcher](images/operator-project.png)
+
+1. xx
 
 ## Resources
 
