@@ -4,7 +4,7 @@ This repository enables you to install 3scale API Manager on a cluster OpenShift
 It provides the terraform to provision the required infrastructure, which includes a VPC network, a cluster and a Cloud Object Storage.
 Then, you have all the steps to install and access the 3scale dashboard.
 
-    ![launcher](images/operator-3scale-master.png)
+![launcher](images/operator-3scale-master.png)
 
 ## Prerequisites
 
