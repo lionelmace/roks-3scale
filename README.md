@@ -16,6 +16,12 @@ Then, you have all the steps to install and access the 3scale dashboard.
 
 Terraform can be used to provision the Cloud Services: the OpenShift cluster, the COS bucket.
 
+1. Clone this repository
+
+    ```sh
+    git clone https://github.com/lionelmace/roks-3scale.git
+    ```
+
 1. Initialize the terraform
 
     ```sh
@@ -34,7 +40,7 @@ Terraform can be used to provision the Cloud Services: the OpenShift cluster, th
     terraform apply -var-file="testing.auto.tfvars"
     ```
 
-> You can also provision the Cloud Services via IBM Cloud Schematics.
+> You can also provision the Cloud Services via IBM Cloud [Schematics](https://cloud.ibm.com/schematics/workspaces) by importing this link into a new Schematics workspace https://github.com/lionelmace/roks-3scale/tree/main/terraform.
 
 ## Connect to the OpenShift Cluster
 
