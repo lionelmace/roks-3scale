@@ -135,7 +135,43 @@ Terraform can be used to provision the Cloud Services: the OpenShift cluster, th
 
 ## Install the 3scale operator
 
-1. xx
+1. Find the 3scale operator you want to install from OperatorHub
+
+    ```sh
+    oc get packagemanifests | grep 3scale
+    ```
+
+1. Inspect your desired Operator to verify its supported install modes and available channels.
+
+    ```sh
+    oc describe packagemanifests 3scale -n openshift-marketplace
+    ```
+
+1. Verify that the cluster service version (CSV)
+
+    ```sh
+    oc describe packagemanifests 3scale -n openshift-marketplace | grep CSV
+    ```
+
+1. Install the 3scale operator
+
+    ```sh
+    oc apply -f - <<EOF
+    ---
+    apiVersion: operators.coreos.com/v1alpha1
+    kind: Subscription
+    metadata:
+      name: 3scale-operator
+      namespace: $THREESCALE_PROJECT
+    spec:
+      channel: threescale-2.13
+      installPlanApproval: Automatic 
+      name: 3scale-operator
+      source: redhat-operators
+      sourceNamespace: openshift-marketplace
+      startingCSV: 3scale-operator.v0.10.1-0.1675914645.p
+    EOF
+    ```
 
 ## Create the 3scale APIManager
 
