@@ -12,7 +12,7 @@ Then, you have all the steps to install and access the 3scale dashboard.
 * An OpenShift cluster on IBM Cloud, a.k.a [ROKS](https://cloud.ibm.com/kubernetes/clusters?platformType=openshift)
 * A COS bucket
 
-## Create the environment
+## Provision the Cloud Services
 
 Terraform can be used to provision the Cloud Services: the OpenShift cluster, the COS bucket.
 
