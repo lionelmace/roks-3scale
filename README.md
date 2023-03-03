@@ -1,9 +1,15 @@
 # Install 3scale operator on OpenShift on IBM Cloud
 
+This repository enables you to install 3scale API Manager on a cluster OpenShift on IBM Cloud.
+It provides the terraform to provision the required infrastructure, which includes a VPC network, a cluster and a Cloud Object Storage.
+Then, you have all the steps to install and access the 3scale dashboard.
+
+    ![launcher](images/operator-3scale-master.png)
+
 ## Prerequisites
 
-* An IBM Cloud Account with Admin access rights
-* An OpenShift cluster on IBM Cloud, a.k.a ROKS
+* An IBM Cloud [Account](https://cloud.ibm.com)
+* An OpenShift cluster on IBM Cloud, a.k.a [ROKS](https://cloud.ibm.com/kubernetes/clusters?platformType=openshift)
 * A COS bucket
 
 ## Create the environment
@@ -231,9 +237,11 @@ Once the installation is complete, you will be able to access the 3scale console
 
     ![launcher](images/operator-password.png)
 
-1. Login to 3scale
+1. Login to 3scale.
 
     ![launcher](images/operator-3scale-master.png)
+
+Congratulations!
 
 ## Resources
 
