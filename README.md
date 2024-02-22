@@ -113,8 +113,6 @@ Terraform can be used to provision the Cloud Services: the OpenShift cluster, th
     oc secrets link builder threescale-registry-auth
     ```
 
-    > --docker-email="lionel.mace@fr.ibm.com"
-
 ## Configure access to IBM Cloud COS
 
 1. Select the storage instance from the [COS list](https://cloud.ibm.com/objectstorage)
